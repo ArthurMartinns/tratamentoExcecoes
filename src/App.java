@@ -10,22 +10,22 @@ public class App {
 
         System.out.println("Entre com os dados da conta: ");
 
+        System.out.println("Número: ");
+        int number = Integer.parseInt(sc.nextLine());
+
+        System.out.println("Titular: ");
+        String holder = sc.nextLine();
+
+        System.out.println("Saldo Inicial: ");
+        Double balance = Double.parseDouble(sc.nextLine());
+
+        System.out.println("Limite de retirada: ");
+        Double withdrawlimit = Double.parseDouble(sc.nextLine());
+
+        System.out.println("Entre com o valor para retirada: ");
+        Double amount = Double.parseDouble(sc.nextLine());
+
         try {
-            System.out.println("Número: ");
-            int number = Integer.parseInt(sc.nextLine());
-
-            System.out.println("Titular: ");
-            String holder = sc.nextLine();
-
-            System.out.println("Saldo Inicial: ");
-            Double balance = Double.parseDouble(sc.nextLine());
-
-            System.out.println("Limite de retirada: ");
-            Double withdrawlimit = Double.parseDouble(sc.nextLine());
-
-            System.out.println("Entre com o valor para retirada: ");
-            Double amount = Double.parseDouble(sc.nextLine());
-
             Account ac = new Account(number, holder, balance, withdrawlimit);
 
             if (ac.getWithDrawLimit() > amount) {
@@ -36,6 +36,7 @@ public class App {
                 }
             } else {
                 System.out.println("Erro: Valor deve ser menor do que o limite de retirada! ");
+                sc.close();
                 return;
             }
 
@@ -45,5 +46,6 @@ public class App {
             System.out.println("Entrada inválida. ");
         }
 
+        sc.close();
     }
 }
